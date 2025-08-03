@@ -18,6 +18,12 @@ extension UIWindow {
         } else {
             super.motionEnded(motion, with: event)
         }
+        if motion == .motionShake {
+            NotificationCenter.default.post(
+                name: NSNotification.Name("motionEnded-motionShake"),
+                object: nil
+            )
+        }
     }
 }
 
